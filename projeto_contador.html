@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body {
+            background-color: rgb(99, 98, 164);
+            font: normal 15pt Arial;
+        }
+        header {
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 2px 2px 5px rgb(93, 92, 92);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            font-style: italic;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div>
+            <p>Início: <input type="number" name="início" id="inicio"></p>
+            <p>Passo: <input type="number" name="passo" id="passo"></p>
+            <p>Fim: <input type="number" name="fim" id="fim"></p>
+            <p><input type="button" value="Contar" style="background-color: grey; color: white;" onclick="contar()"></p>
+        </div>
+        <div id = 'contagem'>
+            Verificando contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy; Lobão&Morais</p>
+    </footer>
+    <script>
+        function contar() {
+            var inicio = window.document.querySelector('input#inicio')
+            var passo = window.document.querySelector('input#passo')
+            var fim = window.document.querySelector('input#fim')
+            var msg = window.document.querySelector('div#contagem')
+
+            var i1 = Number(inicio.value)
+            var p1 = Number(passo.value)
+            var f1 = Number(fim.value)
+    
+            msg.innerHTML = 'Contando... <br>'
+    
+            if(i1 < f1) {
+                // Contagem crescente
+                for(var i2 = i1; i2 <= f1; i2 += p1) {
+                    msg.innerHTML += `${i2} \u{1F449}`
+                }
+            } else {
+                    // Contagem decrescente
+                for(var i2 = i1; i2 >= f1; i2 -= p1) {
+                msg.innerHTML += `${i2} \u{1F449}`
+                }
+            }
+            msg.innerHTML += '\u{1F3C1}'
+        }
+    </script>
+</body>
+</html>
